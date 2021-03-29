@@ -2,7 +2,6 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  mode: 'development',
   entry: {
     index: path.resolve(__dirname, './src/js/index.js')
   },
@@ -42,6 +41,9 @@ module.exports = {
       excludeChunks: ['node_modules']
     })
   ],
+  optimization: {
+    splitChunks: { chunks: "all" } // code splitting
+  },
   devServer: {
     port: 8089,
     host: 'localhost',
